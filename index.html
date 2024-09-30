@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8"><title>Project Beta²</title>
+	<meta name="viewport"
+		  content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes, viewport-fit=cover">
+	<link rel="icon" href="favicon.ico" sizes="16x16 32x32">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="1024x1024">
+	<link type="text/css" rel="stylesheet" href="styles.css" media="all">
+	<script src="slideshows.js"></script>
+</head><body>
+
+<div id="header" class="floor">
+	<img id="titleLogo" class="nodrag" src="images/title.svg" alt="Project Beta²">
+</div>
+
+<div id="content" class="wall">
+
+	<div class="display module rightModule"><div>
+		<div>
+			<div class="moduleHeader">
+				<div class="numberText">00</div>
+				<div class="headerText">About Project Beta<sup>2</sup></div>
+			</div>
+
+			<p>Dolorum illum distinctio laborum est qui voluptatem. Deleniti qui quos eum. Qui perferendis fuga quisquam omnis asperiores. Possimus officiis quis aspernatur quis quo. Ullam harum quos aperiam.</p>
+
+			<p>Perferendis et quod numquam voluptatem. Dolore facere est omnis vel autem tempore. Sed doloremque velit corrupti quasi. Libero fuga ut autem rerum libero quod et.</p>
+
+			<p>Reiciendis dolorem maiores occaecati culpa ipsa et id. Cumque sunt et quia cumque et aut soluta. Tempore minus animi nulla dolorem voluptates non dolorem minus. Beatae quia sunt odio praesentium est veniam. Harum et excepturi asperiores velit quia non. Repellat eaque cupiditate sunt dolores beatae qui.</p>
+
+			<br>
+			<br>
+			<div class='downloadButton'>
+				<div class="downloadButtonImage"></div>
+				<div class="downloadText">Download the&nbsp;mod</div>
+			</div>
+
+		</div>
+		<div class="moduleLogo"></div>
+	</div></div>
+
+	<div class="display module leftModule"><div>
+		<div class="moduleHeader">
+			<div class="numberText">01</div>
+			<div class="headerText">Trailer Rooms</div>
+		</div>
+		Dolorum illum distinctio laborum est qui voluptatem. Deleniti qui quos eum. Qui perferendis fuga quisquam omnis asperiores. Possimus officiis quis aspernatur quis quo. Ullam harum quos aperiam.
+		<div class="slideshow" id="trailer"><p>(If you see this text and cannot see a slideshow, please make sure Javascript is enabled.)</p></div>
+		<div class="moduleLogo"></div>
+	</div></div>
+
+	<div class="display module rightModule"><div>
+		<div class="moduleHeader">
+			<div class="numberText">02</div>
+			<div class="headerText">Leipzig Demo</div>
+		</div>
+		Dolorum illum distinctio laborum est qui voluptatem. Deleniti qui quos eum. Qui perferendis fuga quisquam omnis asperiores. Possimus officiis quis aspernatur quis quo. Ullam harum quos aperiam.
+		<div class="slideshow" id="leipzig"><p>(If you see this text and cannot see a slideshow, please make sure Javascript is enabled.)</p></div>
+		<div class="moduleLogo"></div>
+	</div></div>
+
+	<div class="display module leftModule"><div>
+		<div class="moduleHeader">
+			<div class="numberText">03</div>
+			<div class="headerText">Barcelona Demo</div>
+		</div>
+		Dolorum illum distinctio laborum est qui voluptatem. Deleniti qui quos eum. Qui perferendis fuga quisquam omnis asperiores. Possimus officiis quis aspernatur quis quo. Ullam harum quos aperiam.
+		<div class="slideshow" id="barcelona"><p>(If you see this text and cannot see a slideshow, please make sure Javascript is enabled.)</p></div>
+		<div class="moduleLogo"></div>
+	</div></div>
+
+</div>
+
+<div id="footer" class="floor">
+	<span class="copyright">
+		Compiled by The Project Beta Team. All trademarks are properties of their respective owners.
+	</span>
+</div>
+
+
+<div id="overlay">
+
+	<div class="overlayButtonArea" id="overlayCloseArea">
+		<div id="overlayClose" class="displayButton xButton" onclick="Slideshow.setOverlayVisibility(false)"></div>
+	</div>
+
+	<div class="overlayHoriArea" id="overlayHoriLeft">
+		<div class="displayButton prevButton" onclick="Slideshow.currentOverlayPrev()"></div>
+	</div>
+
+
+	<div id="overlayImage"></div>
+
+	<div class="overlayHoriArea" id="overlayHoriRight">
+		<div class="displayButton xButton" onclick="Slideshow.setOverlayVisibility(false)"></div>
+		<div class="displayButton nextButton" onclick="Slideshow.currentOverlayNext()"></div>
+		<div class="displayButton" style="opacity: 0%;"></div>
+	</div>
+
+	<div class="overlayButtonArea" id="overlayControlArea">
+		<div class="displayButton prevButton" onclick="Slideshow.currentOverlayPrev()"></div>
+		<div class="displayButton nextButton" onclick="Slideshow.currentOverlayNext()"></div>
+	</div>
+</div>
+
+</body></html>
