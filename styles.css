@@ -425,7 +425,10 @@ body {
 	.rightModule { margin-right: 12vw; }
 	/*.headerText { font-size: 45px;}*/
 	/*.numberText { font-size: 300px;}*/
-	.downloadButton { transform: scale(1.5)}
+	.downloadButton {
+		margin: 50px auto;
+		transform: scale(1.25)
+	}
 }
 
 /* Header adjustment at smaller widths */
