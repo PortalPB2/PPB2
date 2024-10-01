@@ -559,6 +559,10 @@ body {
 		--moduleMarginInner: 15px;
 	}
 
+	.module {
+		margin: calc(var(--moduleMarginOuter)*2) var(--moduleMarginOuter);
+	}
+
 	.downloadButton { width: 160px; }
 	.downloadText { font-weight: bold; }
 	.moduleLogo {
