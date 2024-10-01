@@ -241,7 +241,10 @@ body {
 
 .prevButton { background-image: url("./images/buttons/left arrow.svg"); }
 .nextButton { background-image: url("./images/buttons/right arrow.svg"); }
-.fullscreenButton { background-image: url("./images/buttons/fullscreen.svg"); }
+.fullscreenButton {
+	background-image: url("./images/buttons/fullscreen.svg");
+	cursor: zoom-in!important;
+}
 
 .xButton {
 	background-image: url("./images/buttons/exit door.svg");
