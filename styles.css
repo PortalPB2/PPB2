@@ -25,6 +25,7 @@
 	--downloadButtonTextSizeActive: 14px;
 
 	--moduleLeftMargin: 10%;
+	--progressMarkerHeight: 18px;
 
 	/* colors */
 	--floorBG: #575a5f;
@@ -354,6 +355,40 @@ body {
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 }
+
+
+/* MODULE PROGRESS INDICATOR */
+
+
+.markerText {
+	font-size: calc(var(--progressMarkerHeight) * .95);
+	margin-left: 10px;
+}
+.markerSpace {
+	width: 100%;
+	border-top: var(--buttonBorderThickness) solid black;
+	height: calc(var(--progressMarkerHeight) + var(--buttonBorderThickness) + var(--buttonBorderThickness));
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin-bottom: 32px;
+}
+
+.marker {
+	height: var(--progressMarkerHeight);
+	background-image: url("images/progress marker.svg");
+	background-size: calc(2 * var(--buttonBorderThickness));
+	background-position: bottom left;
+	background-repeat: repeat-x;
+}
+
+#marker0 { width: calc(100% / 3 * .12); }
+#marker1 { width: calc(100% / 3 * 1); }
+#marker2 { width: calc(100% / 3 * 2); }
+#marker3 { width: calc(100% / 3 * 3); }
+
+/* OVERLAY SYSTEM */
 
 #overlay {
 	z-index: 100;
