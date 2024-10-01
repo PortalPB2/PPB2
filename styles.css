@@ -345,12 +345,12 @@ body {
 	margin-top: var(--moduleMarginInner);
 }
 
-.headerText, .numberText, .slideshowImage, .displayButton, #titleLogo, .downloadButton, .downloadText * {
-	user-select: none;
-	-ms-user-select: none;
-	-moz-user-select: none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
+.headerText, .numberText, .slideshowImage, .displayButton, #titleLogo, .downloadButton *, .markerText {
+	user-select: none!important;
+	-ms-user-select: none!important;
+	-moz-user-select: none!important;
+	-khtml-user-select: none!important;
+	-webkit-user-select: none!important;
 }
 
 
