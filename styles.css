@@ -58,7 +58,10 @@
 
 /* BODY */
 
-html { background-color: black; }
+html {
+	background-color: black;
+	overscroll-behavior: none;
+}
 
 body {
 	font-family: "Trebuchet MS", sans-serif;
