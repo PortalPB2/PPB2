@@ -581,7 +581,7 @@ body {
 }
 
 /* Small buttons at small widths */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 343px) {
 	:root {
 		--buttonSize: 42px;
 		--buttonBG: 32px;
