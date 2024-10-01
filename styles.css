@@ -467,9 +467,9 @@ body {
 
 /* Very Large screens */
 @media only screen and (min-width: 1600px) {
-	.headerText { font-size: 64px; }
+	.headerText { font-size: 64px; font-weight: 200; }
 	.numberText { font-size: 300px; }
-	body { font-size: 14pt; }
+	body { font-size: 15pt; font-weight: 100; }
 }
 /* Large screens */
 @media only screen and (min-width: 1200px) {
