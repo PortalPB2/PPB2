@@ -124,7 +124,7 @@ class Slideshow {
 	 */
 	static setupSlideShows() {
 		for(const slideshow of this.#slideShows) slideshow.#setup();
-		document.addEventListener('scroll', this.#scrollStopper);
+		document.addEventListener('scroll', this.#scrollStopper, {capture: true});
 	}
 	
 	/** Create a
