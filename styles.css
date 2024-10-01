@@ -193,7 +193,7 @@ body {
 	flex-flow: row nowrap;
 }
 
-.buttonSet, .buttonSetPaddingWithLine {
+.buttonSet, .buttonSetPadding {
 	border-top: var(--buttonBorderThickness) solid black;
 	padding-top: 10px;
 }
@@ -252,7 +252,6 @@ body {
 
 .downloadButton {
 	box-shadow: var(--buttonInnerShadow) 0 0 6px inset; /* inner gradient*/
-	margin: 30px auto;
 	background-color: unset;
 	width: 280px;
 	display: flex;
@@ -353,6 +352,12 @@ body {
 	-webkit-user-select: none!important;
 }
 
+.line {
+	height: var(--buttonBorderThickness);
+	margin: var(--buttonBorderThickness) 0;
+	width: 100%;
+	background-color: black;
+}
 
 /* MODULE PROGRESS INDICATOR */
 
@@ -467,7 +472,6 @@ body {
 	.leftModule { margin-left: 12vw; }
 	.rightModule { margin-right: 12vw; }
 	.downloadButton {
-		margin: 50px auto;
 		/*transform: scale(1.25)*/
 	}
 }
