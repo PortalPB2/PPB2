@@ -172,11 +172,11 @@ class Slideshow {
 		
 		
 		const buttonSet = document.createElement('div'),
-			buttonSetPaddingL = document.createElement('div'),
+			// buttonSetPaddingL = document.createElement('div'),
 			buttonSetPaddingR = document.createElement('div');
 		
 		buttonSet.setAttribute('class','buttonSet');
-		buttonSetPaddingL.setAttribute('class','buttonSetPadding');
+		// buttonSetPaddingL.setAttribute('class','buttonSetPadding');
 		buttonSetPaddingR.setAttribute('class','buttonSetPadding buttonSetPaddingWithLine');
 		
 		const fs = document.createElement('div'),
@@ -194,7 +194,7 @@ class Slideshow {
 		this.#slideshowImageDiv.addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
 		
 		buttonSet.append(prev, next, fs);
-		buttonContainer.append(buttonSetPaddingL, buttonSet, buttonSetPaddingR);
+		buttonContainer.append(/*buttonSetPaddingL,*/ buttonSet, buttonSetPaddingR);
 		this.#element.append(this.#slideshowImageDiv, buttonContainer);
 		
 		this.#currentSlide = this.#clamp(Math.floor(Math.random() * this.#images.length));

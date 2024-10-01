@@ -10,8 +10,8 @@
 :root {
 	/* dimensions */
 	--materialUnit: 150px;
-	--moduleMarginOuter: 50px;
-	--moduleMarginInner: 30px;
+	--moduleMarginOuter: 60px;
+	--moduleMarginInner: 40px;
 	--buttonBorderThickness: 1.5px;
 	--buttonMargin: 8px;
 
@@ -23,6 +23,8 @@
 	--downloadButtonTextSize: 18px;
 	--downloadButtonTextSizeHover: 19px;
 	--downloadButtonTextSizeActive: 14px;
+
+	--moduleLeftMargin: 10%;
 
 	/* colors */
 	--floorBG: #575a5f;
@@ -159,7 +161,6 @@ body {
 	font-size: 35px;
 	font-weight: bold;
 	text-align: right;
-	text-transform: uppercase;
 }
 
 .numberText {
@@ -205,7 +206,7 @@ body {
 	min-height: var(--buttonSize);
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: var(--buttonMargin) var(--buttonMargin);
 }
 
@@ -250,7 +251,7 @@ body {
 
 .downloadButton {
 	box-shadow: var(--buttonInnerShadow) 0 0 6px inset; /* inner gradient*/
-	margin: auto;
+	margin: 30px auto;
 	background-color: unset;
 	width: 280px;
 	display: flex;
@@ -317,11 +318,14 @@ body {
 	margin: calc(var(--moduleMarginOuter) *.5) var(--moduleMarginOuter);
 	max-width: 80vw;
 	text-align: justify;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
 }
 
 .module > * {
 	margin: var(--moduleMarginInner);
-	width: calc(100% - var(--moduleMarginInner) - var(--moduleMarginInner) );
+	width: calc(100% - var(--moduleMarginInner) - var(--moduleMarginInner) - var(--moduleLeftMargin));
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: stretch;
@@ -425,7 +429,7 @@ body {
 }
 
 /* Header adjustment at smaller widths */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 777px) {
 	.moduleHeader {
 		justify-content: space-between;
 		align-items: center;
@@ -484,26 +488,25 @@ body {
 	}
 }
 
-/* Small buttons at small heights */
-/*
-@media only screen and (max-height: 320px) {
-	:root {
-		--buttonSize: 42px;
-		--buttonBG: 30px;
-		--buttonBGHover: 32px;
-		--buttonBGActive: 20px;
-	}
-}
-*/
-
 /* Adjust module headers at small widths */
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 600px) {
+	.headerText { font-size: 25px; }
+}
+
+
+@media only screen and (max-width: 525px) {
+	.leftModule { align-self: center; }
+	.rightModule { align-self: center; }
 
 	.moduleHeader {
 		flex-flow: column nowrap;
 		justify-content: flex-start;
-		align-items: center;
+		align-items: flex-start;
 		margin-bottom: 32px;
+	}
+	.numberText, .headerText {
+		text-align: left!important;
+		margin: 0;
 	}
 
 	:root {
@@ -511,19 +514,36 @@ body {
 		--downloadButtonTextSize: 14px;
 		--downloadButtonTextSizeHover: 15px;
 		--downloadButtonTextSizeActive: 10px;
+		--moduleMarginOuter: 15px;
+		--moduleMarginInner: 15px;
 	}
 
-	.numberText, .headerText {
-		text-align: center!important;
-		margin: 0;
-	}
-
-	.headerText { font-size: 25px; }
 	.downloadButton { width: 160px; }
 	.downloadText { font-weight: bold; }
 	.moduleLogo {
 		width: 60px;
 		height: 60px;
 		background-position: bottom;
+	}
+}
+
+@media only screen and (max-width: 420px) {
+
+	:root {
+		--moduleLeftMargin: 5%;
+	}
+
+	body {
+		font-size: 10pt;
+	}
+}
+
+/* Small buttons at small widths */
+@media only screen and (max-width: 400px) {
+	:root {
+		--buttonSize: 42px;
+		--buttonBG: 32px;
+		--buttonBGHover: 34px;
+		--buttonBGActive: 24px;
 	}
 }
