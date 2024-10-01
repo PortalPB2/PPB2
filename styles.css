@@ -243,7 +243,8 @@ body {
 .fullscreenButton { background-image: url("./images/buttons/fullscreen.svg"); }
 
 .xButton {
-	background-image: url("./images/buttons/X.svg");
+	background-image: url("./images/buttons/exit door.svg");
+	background-size: var(--buttonSize) var(--buttonSize);
 	cursor: zoom-out!important;
 }
 
