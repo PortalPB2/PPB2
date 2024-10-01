@@ -465,15 +465,18 @@ body {
 
 /* ADJUSTMENTS FOR LARGE AND SMALL WIDTHS */
 
+/* Very Large screens */
+@media only screen and (min-width: 1600px) {
+	.headerText { font-size: 64px; }
+	.numberText { font-size: 300px; }
+	body { font-size: 14pt; }
+}
 /* Large screens */
 @media only screen and (min-width: 1200px) {
 	#header { height: calc(var(--materialUnit) * 3); }
 	.module { max-width: 64vw; }
 	.leftModule { margin-left: 12vw; }
 	.rightModule { margin-right: 12vw; }
-	.downloadButton {
-		/*transform: scale(1.25)*/
-	}
 }
 
 /* Header adjustment at smaller widths */
