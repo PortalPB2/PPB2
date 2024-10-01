@@ -33,22 +33,10 @@ const delimiter = '/',
 
 class Slideshow {
 	
-	/** Should scrolling be blocked?
-	 * @type {boolean}
-	 */
-	static #scrollBlock = false;
-	
 	/** Last saved vertical scroll position.
 	 * @type {number}
 	 */
 	static #scrollCoordinate = 0;
-	
-	/** Prevents scrolling when overlay is active.
-	 */
-	static #scrollStopper = (event) => {
-		if(this.#scrollBlock) window.scrollTo(0, this.#scrollCoordinate);
-	};
-	
 	
 	/** The current slideshow being used by the overlay.
 	 * @type {null|Slideshow}
@@ -63,17 +51,18 @@ class Slideshow {
 		const showOverlay = !!visible;
 		document.getElementById('overlay').style.display = showOverlay ? 'flex' : 'none';
 		
-		//blurring: this causes massive slowdown on some browsers
-		// document.getElementById('theLayout').style.filter = showOverlay ? 'blur(12px)' : 'none';
-		
 		if(slideShow) {
 			this.#currentOverlaySlideshow = slideShow;
 			this.#updateOverlayPicture();
 		}
+		//save scroll coordinate
+		if(showOverlay) this.#scrollCoordinate = window.scrollY;
 		
-		//block scrolling when slideshow is active
-		this.#scrollCoordinate = window.scrollY;
-		this.#scrollBlock = showOverlay;
+		//show or hide body elements
+		for(const ID of ['header', 'footer', 'content']) document.getElementById(ID).style.display = showOverlay ? 'none' : 'flex';
+		
+		//restore scroll coordinate
+		if(!showOverlay) window.scrollTo(0, this.#scrollCoordinate);
 	}
 	
 	static currentOverlayPrev() {
@@ -124,7 +113,7 @@ class Slideshow {
 	 */
 	static setupSlideShows() {
 		for(const slideshow of this.#slideShows) slideshow.#setup();
-		document.addEventListener('scroll', this.#scrollStopper, {capture: true});
+		// document.addEventListener('scroll', this.#scrollStopper, {capture: true});
 	}
 	
 	/** Create a
