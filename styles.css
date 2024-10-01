@@ -281,7 +281,7 @@ body {
 .downloadText {
 	flex-grow: 1;
 	border: var(--buttonBorderThickness) solid black;
-	border-left: none;
+	border-right: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -462,7 +462,7 @@ body {
 	.rightModule { margin-right: 12vw; }
 	.downloadButton {
 		margin: 50px auto;
-		transform: scale(1.25)
+		/*transform: scale(1.25)*/
 	}
 }
 
