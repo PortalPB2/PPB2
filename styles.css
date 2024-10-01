@@ -66,8 +66,6 @@ html, body {
 
 body {
 	margin: 0;
-	display: flex;
-	flex-flow: column nowrap;
 	font-size: 12pt;
 }
 
@@ -456,13 +454,10 @@ body {
 
 /* Large screens */
 @media only screen and (min-width: 1200px) {
-	/*body { font-size: 15pt; }*/
 	#header { height: calc(var(--materialUnit) * 3); }
 	.module { max-width: 64vw; }
 	.leftModule { margin-left: 12vw; }
 	.rightModule { margin-right: 12vw; }
-	/*.headerText { font-size: 45px;}*/
-	/*.numberText { font-size: 300px;}*/
 	.downloadButton {
 		margin: 50px auto;
 		transform: scale(1.25)
