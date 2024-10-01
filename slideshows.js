@@ -146,6 +146,21 @@ class Slideshow {
 		return n % this.#images.length;
 	}
 	
+	/*
+	As it happens, I bet you weren't expecting to find this text!
+	Not that you will listen, but there's nothing more to see here.
+	Did you really expect something? Like, maybe an ARG, or a puzzle, or a mystery?
+	Really? Surely, you realize that not every single Portal-adjacent game is going to have that.
+	Excruciating, I know, but try to remember that this mod is being released for free.
+	We're not getting paid for this, and creating elaborate plots and puzzles takes time.
+	
+	You should know, I feel your pain. I was also hoping for a Portal Project Beta 2 ARG.
+	Anyway... what do you think of this website? Presumably you liked it enough to browse the source code...
+	Rummaging through it, you will find some CSS styles and the JS code used to make the slideshows work.
+	Only a true genius like myself is smart enough to create a beautiful website like this one!
+	Someone ought to pay me to do this for a living... OK. That's enough text for now. Bye bye!
+	*/
+	
 	/** Construct the path of the current slideshow image.
 	 * @return {string} A string representing the file path.
 	 */
