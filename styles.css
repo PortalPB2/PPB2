@@ -387,6 +387,11 @@ body {
 
 /* OVERLAY SYSTEM */
 
+@keyframes Scanlines {
+	0% { background-position: 0 0 }
+	100% { background-position: 0 8px; }
+}
+
 #overlay {
 	z-index: 100;
 	position: fixed;
@@ -403,6 +408,7 @@ body {
 	background-image: url("images/stripes.png");
 	background-size: 8px 8px;
 	background-repeat: repeat;
+	animation: Scanlines 200ms linear infinite;
 	/*display: flex;*/
 	display: none;
 
