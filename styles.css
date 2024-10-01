@@ -428,7 +428,7 @@ body {
 	cursor: default;
 }
 
-.overlayButtonArea, .overlayHoriArea { filter: invert(1) hue-rotate(180deg); }
+.overlayButtonArea, .overlayHoriArea { filter: invert(1) /*hue-rotate(180deg);*/ }
 .overlayHoriArea { display: none; }
 
 #overlayImage, .overlayButtonArea {
