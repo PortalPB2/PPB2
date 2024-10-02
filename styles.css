@@ -32,8 +32,8 @@
 	--wallBG: #999f9b;
 	--blue: #40A0FF;
 	--pink: #C80096;
-	--signInnerShadow: #47586c;
-	--buttonInnerShadow: #BBC5D2;
+	--signInnerShadow: #a3afc1;
+	--buttonInnerShadow: #a3afc1;
 	--signBG: #E6ECF2;
 
 	/* urls */
@@ -225,11 +225,16 @@ body {
 	background-size: var(--buttonSize) var(--buttonSize) !important;
 	cursor: default;
 	transition-property: none;
-	pointer-events: none;
+	pointer-events: none!important;
 	font-size: calc(.8* var(--buttonBG));
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.inactiveButton {
+	opacity: 10% !important;
+	pointer-events: none!important;
 }
 
 .displayButton, .downloadButton {
