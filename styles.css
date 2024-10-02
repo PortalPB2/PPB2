@@ -221,6 +221,13 @@ body {
 	transition-property: background-size;
 }
 
+.die {
+	background-size: var(--buttonSize) var(--buttonSize) !important;
+	cursor: default;
+	transition-property: none;
+	pointer-events: none;
+}
+
 .displayButton, .downloadButton {
 	cursor: pointer!important;
 	box-shadow: var(--buttonInnerShadow) 0 0 6px inset; /* inner gradient*/

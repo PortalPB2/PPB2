@@ -109,6 +109,10 @@ class Slideshow {
 	 */
 	#slideshowImageDiv;
 	
+	/** An element containing the die image, which indicates which slide is active.
+	 */
+	#dieElement;
+	
 	/** Sets up all the slideshows.
 	 */
 	static setupSlideShows() {
@@ -173,6 +177,7 @@ class Slideshow {
 	#updateImage() {
 		//update source with path of current image file
 		this.#slideshowImageDiv.style.backgroundImage = URLify(this.#constructPath(this.#currentSlide));
+		this.#dieElement.style.backgroundImage = URLify('images/die/' + String(this.#currentSlide + 1) + '.svg')
 	}
 	
 	/** Go to the previous image.
@@ -217,10 +222,12 @@ class Slideshow {
 		const fs = document.createElement('div'),
 			next = document.createElement('div'),
 			prev = document.createElement('div');
+		this.#dieElement = document.createElement('div');
 		
 		fs.setAttribute('class', 'displayButton fullscreenButton');
 		prev.setAttribute('class', 'displayButton prevButton');
 		next.setAttribute('class', 'displayButton nextButton');
+		this.#dieElement.setAttribute('class', 'displayButton die');
 		
 		prev.onclick = () => this.prev();
 		next.onclick = () => this.next();
@@ -228,7 +235,7 @@ class Slideshow {
 		this.#slideshowImageDiv.onclick = () => Slideshow.setOverlayVisibility(true, this);
 		this.#slideshowImageDiv.addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
 		
-		buttonSet.append(prev, next, fs);
+		buttonSet.append(prev, next, this.#dieElement, fs);
 		buttonContainer.append(buttonSet, buttonSetPadding);
 		this.#element.append(this.#slideshowImageDiv, buttonContainer);
 		
