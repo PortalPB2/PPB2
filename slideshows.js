@@ -29,7 +29,18 @@ const delimiter = '/',
 			'l05.jpg',
 		]
 	}
-}, URLify = function(string) { return "url('" + string + "')"; };
+}, URLify = function(string) { return "url('" + string + "')"; },
+	additionalHazardIcons = [
+		'ball.svg',
+		'box.svg',
+		'catcher.svg',
+		'fly 1.svg',
+		'fly 2.svg',
+		'fountain.svg',
+		'shocking.svg',
+		'toxic.svg',
+		'trash.svg',
+	];
 
 class Slideshow {
 	
@@ -242,7 +253,7 @@ class Slideshow {
 		fs.setAttribute('class', 'displayButton fullscreenButton');
 		prev.setAttribute('class', 'displayButton prevButton');
 		next.setAttribute('class', 'displayButton nextButton');
-		this.#dieElement.setAttribute('class', 'displayButton die');
+		this.#dieElement.setAttribute('class', 'displayButton displayIcon die');
 		
 		prev.onclick = () => this.prev();
 		next.onclick = () => this.next();
