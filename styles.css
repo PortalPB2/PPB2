@@ -288,8 +288,8 @@ body {
 .downloadButton:active { font-size: var(--downloadButtonTextSizeActive); }
 
 .downloadButtonImage {
-	box-shadow: unset;
-	background-color: transparent;
+	box-shadow: unset!important;
+	background-color: unset!important;
 	background-image: url("./images/buttons/box dropper.svg");
 }
 
@@ -377,7 +377,6 @@ body {
 
 /* MODULE PROGRESS INDICATOR */
 
-
 .markerText {
 	font-size: calc(var(--progressMarkerHeight) * .95);
 	margin-left: 10px;
@@ -423,8 +422,6 @@ body {
 	max-width: 100% !important;
 	height: 100vh;
 
-	/*background-color: rgba(0, 0, 0, .85);*/
-	/*background-color: rgba(0, 0, 0, .75);*/
 	background-color: #412402;
 	background-image: url("images/stripes.png");
 	background-size: 8px 8px;
