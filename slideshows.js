@@ -308,7 +308,6 @@ const barcelona = new Slideshow(db.barcelona.path, db.barcelona.images),
 
 window.onload = () => {
 	Slideshow.setupSlideShows();
-	Slideshow.setOverlayVisibility(false);
 	document.getElementById('overlayImage').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
 	document.getElementById('overlay').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
 	addInactiveButtons(document.getElementById('downloadButtonSet'));
