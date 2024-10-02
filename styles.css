@@ -479,8 +479,8 @@ body {
 
 /* Very Large screens */
 @media only screen and (min-width: 1600px) {
-	.headerText { font-size: 64px; }
-	.numberText { font-size: 300px; }
+	/*.headerText { font-size: 64px; }*/
+	/*.numberText { font-size: 300px; }*/
 	body { font-size: 15pt; font-weight: 100; }
 }
 /* Large screens */
