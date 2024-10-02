@@ -42,6 +42,24 @@ const delimiter = '/',
 		'trash.svg',
 	];
 
+/** Add inactive elements to a DOM element.
+ * @param parentElement An element in the DOM to add the inactive icons to.
+ */
+function addInactiveButtons(parentElement) {
+	/* add inactive icons randomly */
+	const number = additionalHazardIcons.length, indices = [], shuffled = [];
+	for(let i = 0; i < number; i++) indices.push(i);
+	//splice random indices into the shuffled array
+	while(indices.length > 0) shuffled.push(indices.splice(Math.floor(Math.random() * indices.length), 1)[0])
+	
+	for(const index of shuffled) {
+		const icon = document.createElement('div');
+		icon.setAttribute('class','displayButton displayIcon inactiveIcon');
+		icon.style.backgroundImage = URLify('images/buttons/' + additionalHazardIcons[index]);
+		parentElement.append(icon);
+	}
+}
+
 class Slideshow {
 	
 	/** Last saved vertical scroll position.
@@ -260,9 +278,10 @@ class Slideshow {
 		fs.onclick = () => Slideshow.setOverlayVisibility(true, this);
 		this.#slideshowImageDiv.onclick = () => Slideshow.setOverlayVisibility(true, this);
 		this.#slideshowImageDiv.addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
-		
 		buttonSet.append(prev, next, this.#dieElement, fs);
+		addInactiveButtons(buttonSet);
 		buttonContainer.append(buttonSet, buttonSetPadding);
+		
 		this.#element.append(this.#slideshowImageDiv, buttonContainer);
 		
 		this.#currentSlide = this.#clamp(Math.floor(Math.random() * this.#images.length));
@@ -285,6 +304,7 @@ window.onload = () => {
 	Slideshow.setOverlayVisibility(false);
 	document.getElementById('overlayImage').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
 	document.getElementById('overlay').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
+	addInactiveButtons(document.getElementById('downloadButtonSet'));
 	window.addEventListener('keydown', e => {
 		if(document.getElementById('overlay').style.display !== 'none') switch (e.key) {
 			case "ArrowLeft":
