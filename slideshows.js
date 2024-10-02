@@ -106,6 +106,8 @@ class Slideshow {
 	
 	static #updateOverlayPicture() {
 		document.getElementById('overlayImage').style.backgroundImage =  URLify(this.#currentOverlaySlideshow.getCurrentImage());
+		this.updateDie(document.getElementById('overlayDie'), this.#currentOverlaySlideshow.getCurrentIndex() + 1);
+		this.updateDie(document.getElementById('overlayHoriDie'), this.#currentOverlaySlideshow.getCurrentIndex() + 1);
 	}
 	
 	static #slideShows = [];
@@ -118,7 +120,7 @@ class Slideshow {
 	/** Integer representing the current slide within the array.
 	 * @type {number}
 	 */
-	#currentSlide = 0;
+	#currentIndex = 0;
 	
 	/** Path of the slideshow folder within the folder indicated by the basePath variable.
 	 * @type {string}
@@ -220,28 +222,33 @@ class Slideshow {
 	 */
 	#updateImage() {
 		//update source with path of current image file
-		this.#slideshowImageDiv.style.backgroundImage = URLify(this.#constructPath(this.#currentSlide));
-		Slideshow.updateDie(this.#dieElement, this.#currentSlide + 1);
+		this.#slideshowImageDiv.style.backgroundImage = URLify(this.#constructPath(this.#currentIndex));
+		Slideshow.updateDie(this.#dieElement, this.#currentIndex + 1);
 	}
 	
 	/** Go to the previous image.
 	 */
 	prev() {
-		this.#currentSlide = this.#clamp(this.#currentSlide-1);
+		this.#currentIndex = this.#clamp(this.#currentIndex-1);
 		this.#updateImage();
 	}
 	
 	/** Go to the next image.
 	 */
 	next() {
-		this.#currentSlide = this.#clamp(this.#currentSlide+1);
+		this.#currentIndex = this.#clamp(this.#currentIndex+1);
 		this.#updateImage();
 	}
+	
+	/** Get the index of the current slide.
+	 * @return {number} The index of the current slide.
+	 */
+	getCurrentIndex() { return this.#currentIndex; }
 	
 	/** Get the current image path.
 	 * @return {string}
 	 */
-	getCurrentImage() { return this.#constructPath(this.#currentSlide); }
+	getCurrentImage() { return this.#constructPath(this.#currentIndex); }
 	
 	/** Set up the html elements.
 	 */
@@ -284,7 +291,7 @@ class Slideshow {
 		
 		this.#element.append(this.#slideshowImageDiv, buttonContainer);
 		
-		this.#currentSlide = this.#clamp(Math.floor(Math.random() * this.#images.length));
+		this.#currentIndex = this.#clamp(Math.floor(Math.random() * this.#images.length));
 		this.#updateImage();
 		
 		//preload images
