@@ -42,7 +42,7 @@ const delimiter = '/',
 		'trash.svg',
 	];
 
-/** Add inactive elements to a DOM element.
+/** Add randomized inactive icon elements to a DOM element.
  * @param parentElement An element in the DOM to add the inactive icons to.
  */
 function addInactiveButtons(parentElement) {
@@ -151,7 +151,8 @@ class Slideshow {
 		// document.addEventListener('scroll', this.#scrollStopper, {capture: true});
 	}
 	
-	/** Create a
+	/** Create a slideshow object. This contains a list of image file paths, some associated DOM elements, and state information.
+	 * There must be an existing DOM element with an ID matching the strings given for the "path" or "elementID" arguments.
 	 * @param path A string representing the name of the folder inside the base slideshow path where the images are contained
 	 * @param imageFiles An array of strings representing the file names of the images inside the path folder.
 	 * @param elementID A string representing the ID of the page element where the slideshow is being displayed.
@@ -182,18 +183,23 @@ class Slideshow {
 	}
 	
 	/*
-	As it happens, I bet you weren't expecting to find this text!
-	Not that you will listen, but there's nothing more to see here.
-	Did you really expect something? Like, maybe an ARG, or a puzzle, or a mystery?
-	Really? Surely, you realize that not every single Portal-adjacent game is going to have that.
-	Excruciating, I know, but try to remember that this mod is being released for free.
-	We're not getting paid for this, and creating elaborate plots and puzzles takes time.
 	
-	You should know, I feel your pain. I was also hoping for a Portal Project Beta 2 ARG.
-	Anyway... what do you think of this website? Presumably you liked it enough to browse the source code...
-	Rummaging through it, you will find some CSS styles and the JS code used to make the slideshows work.
-	Only a true genius like myself is smart enough to create a beautiful website like this one!
-	Someone ought to pay me to do this for a living... OK. That's enough text for now. Bye bye!
+	Bored? You must be. You're sitting there, browsing through the source code of this website, so I guess
+	you don't have anything better to do. I suppose it's worth discussing a bit about how some of this works.
+	
+	All the code in this file relates to managing the slideshows and setting visibility of the lightbox gallery
+	nodes. Specifically, the display property of the header, footer, and content nodes is set to none, and the
+	display property of the overlay gallery node is set to flex. When you click the exit button, these properties are
+	reverted back to their original states. As for the slideshows themselves: An array of filenames is given to
+	each Slideshow object, which contains some functions for setting up slideshow DOM elements, as well as functions for
+	when the user clicks the previous/next buttons (the background image of the appropriate DOM element is changed).
+	
+	You can also check out the stylesheet file. This is a bit of a mess; it contains a bunch of style declarations for
+	all the various types of elements on the page. It takes quite a bit of hard work to get all these styles to work
+	right, but it's worth it. In order to mimic the appearance of the test chamber display signs in Portal, I used a lot
+	of little tricks and techniques involving borders, drop shadows, gradients, and more. As for the little hazard icons
+	seen next to the slideshow controls, I had to recreate them as SVG files using Adobe Illustrator.
+	
 	*/
 	
 	/** Construct the path of the current slideshow image.
