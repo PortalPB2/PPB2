@@ -226,6 +226,10 @@ body {
 	cursor: default;
 	transition-property: none;
 	pointer-events: none;
+	font-size: calc(.8* var(--buttonBG));
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .displayButton, .downloadButton {

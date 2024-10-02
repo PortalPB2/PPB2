@@ -172,12 +172,27 @@ class Slideshow {
 		return basePath + delimiter + this.#path + delimiter + this.#images[n];
 	}
 	
+	/** Update the image of a die element.
+	 * @param element An element in the DOM.
+	 * @param integer An integer representing the 1-indexed number to display for the die.
+	 */
+	static updateDie(element, integer) {
+		if(integer > 0 && integer <= 7) {
+			element.innerText = '';
+			element.style.backgroundImage = URLify('images/die/' + String(Math.trunc(integer)) + '.svg')
+		}
+		else {
+			element.style.backgroundImage = 'unset';
+			element.innerText = String(integer);
+		}
+	}
+	
 	/** Update the image of the slideshow within the html
 	 */
 	#updateImage() {
 		//update source with path of current image file
 		this.#slideshowImageDiv.style.backgroundImage = URLify(this.#constructPath(this.#currentSlide));
-		this.#dieElement.style.backgroundImage = URLify('images/die/' + String(this.#currentSlide + 1) + '.svg')
+		Slideshow.updateDie(this.#dieElement, this.#currentSlide + 1);
 	}
 	
 	/** Go to the previous image.
