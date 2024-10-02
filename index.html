@@ -117,11 +117,14 @@
 <div id="overlay">
 
 	<div class="overlayButtonArea" id="overlayCloseArea">
+		<div id="overlayDie" class="displayButton displayIcon die" onclick="Slideshow.setOverlayVisibility(false)"></div>
 		<div id="overlayClose" class="displayButton xButton" onclick="Slideshow.setOverlayVisibility(false)"></div>
 	</div>
 
 	<div class="overlayHoriArea" id="overlayHoriLeft">
+		<div class="displayButton" style="visibility: hidden;"></div>
 		<div class="displayButton prevButton" onclick="Slideshow.currentOverlayPrev()"></div>
+		<div id="overlayHoriDie" class="displayButton displayIcon die" onclick="Slideshow.setOverlayVisibility(false)"></div>
 	</div>
 
 	<div id="overlayImage"></div>

@@ -469,7 +469,7 @@ body {
 }
 
 #overlayCloseArea {
-	justify-content: flex-end;
+	justify-content: space-between;
 	margin-top: 32px;
 }
 
@@ -544,15 +544,8 @@ body {
 		max-width: calc(var(--buttonSize) + (2 * var(--buttonBorderThickness)));
 	}
 
-	#overlayHoriLeft {
-		justify-content: center;
-		margin-left: max(32px, env(safe-area-inset-left));
-	}
-
-	#overlayHoriRight {
-		justify-content: space-between;
-		margin-right: max(32px, env(safe-area-inset-right));
-	}
+	#overlayHoriLeft { margin-left: max(32px, env(safe-area-inset-left)); }
+	#overlayHoriRight { margin-right: max(32px, env(safe-area-inset-right)); }
 }
 
 /* Adjust module headers at small widths */
