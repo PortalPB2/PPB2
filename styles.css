@@ -35,6 +35,8 @@
 	--signInnerShadow: #a3afc1;
 	--buttonInnerShadow: #a3afc1;
 	--signBG: #E6ECF2;
+	--lightBlue: #8ec0f2;
+	--lightPink: #f28ed9;
 
 	/* urls */
 	--floorIMG: url("images/floor.jpg");
@@ -139,7 +141,7 @@ a:visited::selection {
 }
 
 #footer > * {
-	margin: 15px 40px;
+	margin: 8px 40px;
 }
 
 .copyright {
@@ -153,25 +155,12 @@ a:visited::selection {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-around;
-	gap: 8px;
+	gap: 16px;
 }
 
-.footerLink {
-	min-width: 150px;
-	width: 20%;
-	max-width: 300px;
-	color: white;
-	/*background-color: var(--floorBG);*/
-	padding: 8px;
-}
-
-.footerLink:visited {
-	color: white;
-}
-
-.footerLink:hover {
-	color: var(--blue);
-}
+.footerLink { color: var(--lightBlue); }
+.footerLink:visited { color: var(--lightPink); }
+.footerLink:hover { color: white; }
 
 #content {
 	background-image: linear-gradient(
