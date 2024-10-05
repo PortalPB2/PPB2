@@ -28,15 +28,15 @@
 	--progressMarkerHeight: 18px;
 
 	/* colors */
+	--pink: #C80096;
+	--blue: #40A0FF;
+	--lightPink: #f28ed9;
+	--lightBlue: #8ec0f2;
 	--floorBG: #575a5f;
 	--wallBG: #999f9b;
-	--blue: #40A0FF;
-	--pink: #C80096;
 	--signInnerShadow: #a3afc1;
 	--buttonInnerShadow: #a3afc1;
 	--signBG: #E6ECF2;
-	--lightBlue: #8ec0f2;
-	--lightPink: #f28ed9;
 
 	/* urls */
 	--floorIMG: url("images/floor.jpg");
