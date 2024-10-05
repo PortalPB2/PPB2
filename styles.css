@@ -68,6 +68,11 @@ body {
 	font-size: 12pt;
 }
 
+::selection {
+	background-color: var(--pink);
+	color: white;
+}
+
 /* MATERIALS */
 
 .floor {
