@@ -71,7 +71,22 @@ body {
 ::selection {
 	background-color: var(--pink);
 	color: white;
+	text-shadow: none!important;
 }
+
+a {
+	color: var(--blue)
+}
+
+a:visited {
+	color: var(--pink);
+}
+
+a:visited::selection {
+	background-color: var(--blue);
+	color: black;
+}
+
 
 /* MATERIALS */
 
@@ -111,10 +126,11 @@ body {
 		rgba(0,0,0,var(--opacityFooterTop)),
 		rgba(0,0,0,var(--opacityFooterBot))
 	), var(--floorIMG);
-	height: calc(var(--materialUnit) * 1);
+	height: calc(var(--materialUnit) * 1); /* increase if footer links are used */
 
 	display: flex;
 	flex-flow: column nowrap;
+	justify-content: center;
 }
 
 #header, #footer {
@@ -122,13 +138,39 @@ body {
 	z-index: 10;
 }
 
+#footer > * {
+	margin: 15px 40px;
+}
+
 .copyright {
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 40px;
-	flex-grow: 1;
+}
+
+.footerLinks {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	gap: 8px;
+}
+
+.footerLink {
+	min-width: 150px;
+	width: 20%;
+	max-width: 300px;
+	color: white;
+	/*background-color: var(--floorBG);*/
+	padding: 8px;
+}
+
+.footerLink:visited {
+	color: white;
+}
+
+.footerLink:hover {
+	color: var(--blue);
 }
 
 #content {
