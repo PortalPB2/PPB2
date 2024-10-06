@@ -310,6 +310,8 @@ a:visited::selection {
 }
 
 .downloadButton {
+	color: black;
+	text-decoration: none!important;
 	box-shadow: var(--buttonInnerShadow) 0 0 6px inset; /* inner gradient*/
 	background-color: unset;
 	width: calc(((var(--buttonSize) + (var(--buttonBorderThickness) * 2)) * 4) + (var(--buttonMargin) * 3));
