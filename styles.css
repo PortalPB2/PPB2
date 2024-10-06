@@ -258,6 +258,9 @@ a:visited::selection {
 	transition-property: background-size;
 }
 
+.displayButton:hover { background-size: var(--buttonBGHover) var(--buttonBGHover); }
+.displayButton:active { background-size: var(--buttonBGActive) var(--buttonBGActive); }
+
 /* icons formatted like the clickable buttons but not interactable */
 .displayIcon {
 	background-size: var(--buttonSize) var(--buttonSize) !important;
@@ -279,23 +282,24 @@ a:visited::selection {
 	opacity: 20% !important;
 }
 
+/* overlapping styles for both the display button and the download button */
+
 .displayButton, .downloadButton {
 	cursor: pointer!important;
 	box-shadow: var(--buttonInnerShadow) 0 0 6px inset; /* inner gradient*/
 	transition-duration: 150ms;
 }
 
-.displayButton:hover { background-size: var(--buttonBGHover) var(--buttonBGHover); }
-.displayButton:active { background-size: var(--buttonBGActive) var(--buttonBGActive); }
-
 .displayButton:hover, .downloadButton:hover {
 	box-shadow: white 0 0 25px inset /* inner gradient*/;
 }
 
 .displayButton:active, .downloadButton:active {
-	background-color: white;
+	box-shadow: var(--buttonInnerShadow) 0 0 6px inset; /* inner gradient*/
+	background-color: white!important;
 }
 
+/* buttons with various images */
 .prevButton { background-image: url("./images/buttons/left arrow.svg"); }
 .nextButton { background-image: url("./images/buttons/right arrow.svg"); }
 .fullscreenButton {
@@ -309,6 +313,7 @@ a:visited::selection {
 	cursor: zoom-out!important;
 }
 
+/* the download button */
 .downloadButton {
 	color: black!important;
 	text-decoration: none!important;
@@ -324,6 +329,8 @@ a:visited::selection {
 
 .downloadButton:hover { font-size: var(--downloadButtonTextSizeHover); }
 .downloadButton:active { font-size: var(--downloadButtonTextSizeActive); }
+
+/* child components of the download button */
 
 .downloadButtonImage {
 	box-shadow: unset!important;
