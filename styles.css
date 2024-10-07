@@ -163,10 +163,10 @@ a:visited::selection {
 .footerLink:hover { color: white; }
 
 #content {
-	background-image: linear-gradient(
+	background-image: /*linear-gradient(
 		rgba(0,0,0,var(--opacityContentTop)),
 		rgba(0,0,0,var(--opacityContentBot))
-	), var(--wallIMG);
+	),*/ var(--wallIMG);
 	z-index: 5;
 	display: flex;
 	flex-flow: column nowrap;
