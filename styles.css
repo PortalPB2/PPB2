@@ -557,6 +557,12 @@ a:visited::selection {
 	#overlayImage { background-size: cover; }
 }
 
+@media only screen and (orientation: portrait) {
+	#overlayImage {
+		min-height: 50vh;
+	}
+}
+
 /* Horizontal overlay layout */
 @media only screen and (orientation: landscape) {
 
