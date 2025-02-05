@@ -31,15 +31,15 @@ const delimiter = '/',
 	}
 }, URLify = function(string) { return "url('" + string + "')"; },
 	additionalHazardIcons = [
-		'ball.svg',
-		'box.svg',
-		'catcher.svg',
-		'fly 1.svg',
-		'fly 2.svg',
-		'fountain.svg',
-		'shocking.svg',
-		'toxic.svg',
-		'trash.svg',
+		'png/ball.png',
+		'png/box.png',
+		'png/catcher.png',
+		'png/fly 1.png',
+		'png/fly 2.png',
+		'png/fountain.png',
+		'png/shocking.png',
+		'png/toxic.png',
+		'png/trash.png',
 	];
 
 /** Add randomized inactive icon elements to a DOM element.
