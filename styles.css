@@ -439,8 +439,8 @@ a:visited::selection {
 
 .marker {
 	height: var(--progressMarkerHeight);
-	background-image: url("images/progress marker.png");
-	background-size: calc(2 * var(--buttonBorderThickness));
+	background-image: url("images/progressmarkers.svg");
+	background-size: /*calc(2 * var(--buttonBorderThickness))*/ 48px;
 	background-position: bottom left;
 	background-repeat: repeat-x;
 }
