@@ -31,31 +31,33 @@ const delimiter = '/',
 	}
 }, URLify = function(string) { return "url('" + string + "')"; },
 	additionalHazardIcons = [
-		'png/ball.png',
-		'png/box.png',
-		'png/catcher.png',
-		'png/fly 1.png',
-		'png/fly 2.png',
-		'png/fountain.png',
-		'png/shocking.png',
-		'png/toxic.png',
-		'png/trash.png',
-	];
+		'ball',
+		'box',
+		'catcher',
+		'fly 1',
+		'fly 2',
+		'fountain',
+		'shocking',
+		'toxic',
+		'trash',
+	].map(n => '' + n + '.svg');
+
+function shuffleCompare(a, b) {
+	return Math.random() - .5;
+}
 
 /** Add randomized inactive icon elements to a DOM element.
  * @param parentElement An element in the DOM to add the inactive icons to.
  */
 function addInactiveButtons(parentElement) {
 	/* add inactive icons randomly */
-	const number = additionalHazardIcons.length, indices = [], shuffled = [];
-	for(let i = 0; i < number; i++) indices.push(i);
-	//splice random indices into the shuffled array
-	while(indices.length > 0) shuffled.push(indices.splice(Math.floor(Math.random() * indices.length), 1)[0])
+	const copy = additionalHazardIcons.slice();
+	copy.sort(shuffleCompare);
 	
-	for(const index of shuffled) {
+	for(const path of copy) {
 		const icon = document.createElement('div');
 		icon.setAttribute('class','displayButton displayIcon inactiveIcon');
-		icon.style.backgroundImage = URLify('images/buttons/' + additionalHazardIcons[index]);
+		icon.style.backgroundImage = URLify('images/buttons/' + path);
 		parentElement.append(icon);
 	}
 }

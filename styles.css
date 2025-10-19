@@ -170,7 +170,6 @@ a:visited::selection {
 	z-index: 5;
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: center;
 	align-items: center;
 	padding: 50px 0;
 }
@@ -178,9 +177,8 @@ a:visited::selection {
 /* HEADER ITEMS */
 
 #titleLogo {
-	filter: drop-shadow(0 15px 10px black) ;
-	height: 60%;
-	max-width: 75%;
+	max-height: 80%;
+	max-width: 80%;
 }
 
 .moduleHeader {
@@ -211,12 +209,14 @@ a:visited::selection {
 .display {
 	border: 5px ridge #566065; /* outer frame */
 	box-shadow:
-		#65666A 1px 1px 0 inset, #65666A -1px -1px 0 inset, /* lighter outer border */
-		#3A3F43 3px 3px 0 inset, #3A3F43 -3px -3px 0 inset, /* darker inner border */ var(--signInnerShadow) 0 0 30px inset; /* inner gradient*/
+		#65666A 1px 1px 0 inset, #65666A -1px -1px 0 inset /* lighter outer border */,
+		#3A3F43 3px 3px 0 inset, #3A3F43 -3px -3px 0 inset /* darker inner border */ ,
+		var(--signInnerShadow) 0 0 30px inset /* inner gradient*/,
+		0 0 5px black /* drop shadow */,
+		0 0 150px rgb(240, 249, 255, 0.35) /* outer glow */;
 	padding: 3px;
 	color: black!important; /* text */
-	/* shadow and outer glow */
-	filter: drop-shadow(0 0 5px black) drop-shadow(0 0 150px rgba(240, 249, 255, 0.35));
+	
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -524,13 +524,13 @@ a:visited::selection {
 /* ADJUSTMENTS FOR LARGE AND SMALL WIDTHS */
 
 /* Very Large screens */
-@media only screen and (min-width: 1600px) {
+@media (min-width: 1600px) {
 	/*.headerText { font-size: 64px; }*/
 	/*.numberText { font-size: 300px; }*/
 	body { font-size: 15pt; font-weight: 100; }
 }
 /* Large screens */
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
 	#header { height: calc(var(--materialUnit) * 3); }
 	.module { max-width: 64vw; }
 	.leftModule { margin-left: 12vw; }
@@ -538,7 +538,7 @@ a:visited::selection {
 }
 
 /* Header adjustment at smaller widths */
-@media only screen and (max-width: 777px) {
+@media (max-width: 777px) {
 	.moduleHeader {
 		justify-content: space-between;
 		align-items: center;
@@ -548,7 +548,7 @@ a:visited::selection {
 }
 
 /* Fixed slideshow image height at smaller widths */
-@media only screen and (max-width: 680px) {
+@media (max-width: 680px) {
 	.slideshowImage {
 		padding-bottom: 0!important;
 		min-height: 300px;
@@ -557,14 +557,14 @@ a:visited::selection {
 	#overlayImage { background-size: cover; }
 }
 
-@media only screen and (max-width: 720px) and (orientation: portrait) {
+@media (max-width: 720px) and (orientation: portrait) {
 	#overlayImage {
 		min-height: 50vh;
 	}
 }
 
 /* Horizontal overlay layout */
-@media only screen and (orientation: landscape) {
+@media (orientation: landscape) {
 
 	#overlay {
 		flex-flow: row nowrap;
@@ -597,12 +597,12 @@ a:visited::selection {
 }
 
 /* Adjust module headers at small widths */
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
 	.headerText { font-size: 25px; }
 }
 
 
-@media only screen and (max-width: 525px) {
+@media (max-width: 525px) {
 	.leftModule { align-self: center; }
 	.rightModule { align-self: center; }
 
@@ -641,7 +641,7 @@ a:visited::selection {
 	}
 }
 
-@media only screen and (max-width: 420px) {
+@media (max-width: 420px) {
 
 	:root {
 		--moduleLeftMargin: 5%;
@@ -653,7 +653,7 @@ a:visited::selection {
 }
 
 /* Small buttons at small widths */
-@media only screen and (max-width: 343px) {
+@media (max-width: 343px) {
 	.downloadButton {
 		width: calc(((var(--buttonSize) + (var(--buttonBorderThickness) * 2)) * 3) + (var(--buttonMargin) * 2));
 	}
@@ -665,5 +665,9 @@ a:visited::selection {
 		--buttonBG: 32px;
 		--buttonBGHover: 34px;
 		--buttonBGActive: 24px;
+	}
+	
+	#titleLogo {
+		max-width: 90%;
 	}
 }
