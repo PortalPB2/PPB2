@@ -12,6 +12,24 @@
 	<link rel="icon" href="https://project-beta.com/favicon.ico" sizes="16x16 32x32">
 	<link rel="apple-touch-icon" href="https://project-beta.com/apple-touch-icon.png" sizes="1024x1024">
 	<link type="text/css" rel="stylesheet" href="https://project-beta.com/styles.css?v=2" media="all">
+	
+	<style>
+		
+		#buttonbreak {
+			display: none;
+		}
+		
+		@media (max-width: 360px ){
+			.downloadButton {
+				width: unset!important;
+				max-width: 100% !important;
+			}
+			
+			#buttonbreak {
+				display: unset;
+			}
+		}
+	</style>
 </head><body>
 
 <div id="header" class="floor">
@@ -36,7 +54,7 @@
 		<div class="buttonContainer">
 			<div class="buttonSet" id="downloadButtonSet">
 				<a href="https://project-beta.com/" class='downloadButton'>
-					<div class="downloadText">Return to home page</div>
+					<div class="downloadText">Return to <br id="buttonbreak"/>home page</div>
 					<div class="displayButton displayIcon" style="background-image: url('images/nocake.png')"></div>
 				</a>
 			</div>
@@ -46,7 +64,7 @@
 		<div class="moduleLogo"></div>
 	</div></div>
 	
-	<img style="max-width: 384px!important; display: block; margin: 1em auto; user-select: none!important;" draggable="false" src="images/thecakeisalie.png" alt="the cake is a lie. the cake is a lie. the cake is a lie. the cake is a lie..." />
+	<img class="graffiti" draggable="false" src="images/thecakeisalie.png" alt="the cake is a lie. the cake is a lie. the cake is a lie. the cake is a lie..." />
 
 </div>
 

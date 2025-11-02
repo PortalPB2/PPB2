@@ -521,6 +521,20 @@ a:visited::selection {
 	gap: var(--buttonMargin) var(--buttonMargin);
 }
 
+.graffiti {
+	max-width: min(
+			512px,
+			calc(
+					100% - 20px -
+					env(safe-area-inset-left) -
+					env(safe-area-inset-right)
+			)
+	)!important;
+	display: block;
+	margin: 1em auto;
+	user-select: none!important;
+}
+
 /* ADJUSTMENTS FOR LARGE AND SMALL WIDTHS */
 
 /* Very Large screens */
@@ -669,5 +683,9 @@ a:visited::selection {
 	
 	#titleLogo {
 		max-width: 90%;
+	}
+	
+	.numberText {
+		font-size: min(200px, 60vw);
 	}
 }
