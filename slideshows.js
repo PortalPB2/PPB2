@@ -1,7 +1,9 @@
 "use strict";
 /* Portal Project Beta 2 Slideshow code */
 
-const delimiter = '/',
+let baseURL = '';
+const
+	delimiter = '/',
 	basePath = 'slideshows', db = {
 	barcelona: {
 		path: 'barcelona',
@@ -57,7 +59,7 @@ function addInactiveButtons(parentElement) {
 	for(const path of copy) {
 		const icon = document.createElement('div');
 		icon.setAttribute('class','displayButton displayIcon inactiveIcon');
-		icon.style.backgroundImage = URLify('images/buttons/' + path);
+		icon.style.backgroundImage = URLify(baseURL + 'images/buttons/' + path);
 		parentElement.append(icon);
 	}
 }
@@ -149,7 +151,12 @@ class Slideshow {
 	/** Sets up all the slideshows.
 	 */
 	static setupSlideShows() {
-		for(const slideshow of this.#slideShows) slideshow.#setup();
+		for(const slideshow of this.#slideShows) {
+			try {
+				slideshow.#setup();
+			}
+			catch(e) {}
+		}
 		// document.addEventListener('scroll', this.#scrollStopper, {capture: true});
 	}
 	
@@ -315,10 +322,10 @@ const barcelona = new Slideshow(db.barcelona.path, db.barcelona.images),
 	trailer = new Slideshow(db.trailer.path, db.trailer.images);
 
 window.onload = () => {
+	addInactiveButtons(document.getElementById('downloadButtonSet'));
 	Slideshow.setupSlideShows();
 	document.getElementById('overlayImage').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
 	document.getElementById('overlay').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
-	addInactiveButtons(document.getElementById('downloadButtonSet'));
 	window.addEventListener('keydown', e => {
 		if(document.getElementById('overlay').style.display !== 'none') switch (e.key) {
 			case "ArrowLeft":
