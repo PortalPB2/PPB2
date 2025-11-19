@@ -686,3 +686,25 @@ a:visited::selection {
 		font-size: min(200px, 60vw);
 	}
 }
+
+:root {
+	--cakeVal: .25;
+}
+
+@keyframes cakewalk {
+	0% { opacity: var(--cakeVal); }
+	
+	10% { opacity: var(--cakeVal); }
+	20% { opacity: initial; }
+	30% { opacity: var(--cakeVal); }
+	
+	60% { opacity: var(--cakeVal); }
+	70% { opacity: initial; }
+	80% { opacity: var(--cakeVal); }
+	
+	100% { opacity: var(--cakeVal); }
+}
+
+#cake {
+	animation: cakewalk 60s ease-in-out infinite;
+}

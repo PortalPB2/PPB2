@@ -48,6 +48,17 @@ function shuffleCompare(a, b) {
 	return Math.random() - .5;
 }
 
+/** Create a hazard "button" or icon
+ * @param path The path of the file, within the images/buttons/ directory
+ * @return {HTMLDivElement} A div element
+ */
+function makeButton(path) {
+	const icon = document.createElement('div');
+	icon.setAttribute('class','displayButton displayIcon inactiveIcon');
+	icon.style.backgroundImage = URLify(baseURL + 'images/buttons/' + path);
+	return icon;
+}
+
 /** Add randomized inactive icon elements to a DOM element.
  * @param parentElement An element in the DOM to add the inactive icons to.
  */
@@ -57,10 +68,8 @@ function addInactiveButtons(parentElement) {
 	copy.sort(shuffleCompare);
 	
 	for(const path of copy) {
-		const icon = document.createElement('div');
-		icon.setAttribute('class','displayButton displayIcon inactiveIcon');
-		icon.style.backgroundImage = URLify(baseURL + 'images/buttons/' + path);
-		parentElement.append(icon);
+		const button = makeButton(path);
+		parentElement.append(button);
 	}
 }
 
@@ -265,6 +274,8 @@ class Slideshow {
 	 */
 	getCurrentImage() { return this.#constructPath(this.#currentIndex); }
 	
+	static buttonSetIDPrefix = 'buttonSet';
+	
 	/** Set up the html elements.
 	 */
 	#setup() {
@@ -283,6 +294,7 @@ class Slideshow {
 			buttonSetPadding = document.createElement('div');
 		
 		buttonSet.setAttribute('class','buttonSet');
+		buttonSet.setAttribute('id',this.buttonSetIDPrefix + this.#elementID);
 		buttonSetPadding.setAttribute('class','buttonSetPadding');
 		
 		const fs = document.createElement('div'),
@@ -339,4 +351,14 @@ window.onload = () => {
 				break;
 		}
 	});
+	
+	/* shhhh... don't look over here! go away */
+	const lastButtonArea = document.getElementById(this.buttonSetIDPrefix + 'barcelona'),
+		cakeButton = makeButton('cake.png'),
+		cakeLink = document.createElement('a');
+	
+	cakeLink.setAttribute('href', './cake');
+	cakeLink.setAttribute('id', 'cake');
+	cakeLink.appendChild(cakeButton);
+	lastButtonArea.appendChild(cakeLink);
 }
