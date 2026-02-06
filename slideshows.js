@@ -1,37 +1,10 @@
 "use strict";
-/* Portal Project Beta 2 Slideshow code */
+/* Portal Project Beta website Slideshow code */
 
 let baseURL = '';
-const
-	delimiter = '/',
-	basePath = 'slideshows', db = {
-	barcelona: {
-		path: 'barcelona',
-		images: [
-			'b01.jpg',
-			'b02.jpg',
-			'b03.jpg',
-			'b04.jpg',
-		]
-	}, trailer: {
-		path: 'trailer',
-		images: [
-			't01.jpg',
-			't02.jpg',
-			't03.jpg',
-			't04.jpg',
-		]
-	}, leipzig: {
-		path: 'leipzig',
-		images: [
-			'l01.jpg',
-			'l02.jpg',
-			'l03.jpg',
-			'l04.jpg',
-			'l05.jpg',
-		]
-	}
-}, URLify = function(string) { return "url('" + string + "')"; },
+const delimiter = '/', basePath = 'slideshows';
+
+const URLify = function(string) { return "url('" + string + "')"; },
 	additionalHazardIcons = [
 		'ball',
 		'box',
@@ -329,36 +302,4 @@ class Slideshow {
 	}
 }
 
-const barcelona = new Slideshow(db.barcelona.path, db.barcelona.images),
-	leipzig = new Slideshow(db.leipzig.path, db.leipzig.images),
-	trailer = new Slideshow(db.trailer.path, db.trailer.images);
-
-window.onload = () => {
-	addInactiveButtons(document.getElementById('downloadButtonSet'));
-	Slideshow.setupSlideShows();
-	document.getElementById('overlayImage').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
-	document.getElementById('overlay').addEventListener('contextmenu', e => e.preventDefault(), { passive: false});
-	window.addEventListener('keydown', e => {
-		if(document.getElementById('overlay').style.display !== 'none') switch (e.key) {
-			case "ArrowLeft":
-				Slideshow.currentOverlayPrev();
-				break;
-			case "ArrowRight":
-				Slideshow.currentOverlayNext();
-				break;
-			case "Escape":
-				Slideshow.setOverlayVisibility(false);
-				break;
-		}
-	});
-	
-	/* shhhh... don't look over here! go away */
-	const lastButtonArea = document.getElementById(this.buttonSetIDPrefix + 'barcelona'),
-		cakeButton = makeButton('cake.png'),
-		cakeLink = document.createElement('a');
-	
-	cakeLink.setAttribute('href', './cake');
-	cakeLink.setAttribute('id', 'cake');
-	cakeLink.appendChild(cakeButton);
-	lastButtonArea.appendChild(cakeLink);
-}
+let usecake = false;
