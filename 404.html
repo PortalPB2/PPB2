@@ -23,6 +23,10 @@
 			display: none;
 		}
 		
+		.downloadButton .displayIcon {
+			display: unset!important;
+		}
+		
 		@media (max-width: 360px ){
 			.downloadButton {
 				width: unset!important;
@@ -32,6 +36,15 @@
 			#buttonbreak {
 				display: unset;
 			}
+		}
+		
+		@media (max-width: 380px) {
+			.downloadButton, #downloadButtonSet {
+				width: 140px !important;
+				max-width: 100% !important;
+			}
+			
+			.downloadText { padding: 5px; }
 		}
 	</style>
 </head><body>
