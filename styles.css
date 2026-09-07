@@ -202,19 +202,17 @@
 /* comment/uncomment lines to disable or enable the flicker animation */
 :root {
 	/* animation turned off - this code sets all values to their final states */
-	
+	/*
 	--signBG: var(--signNormal) !important;
 	--buttonInnerShadow: var(--buttonInnerShadowColor) !important;
 	--signGlowOpacity: var(--signGlowNormal) !important;
 	--hazardSymbolVisible: var(--hazardBGVisible) !important;
 	--progressLineVisible: visible!important;
 	--mainElementsVisible: visible!important;
-	
+	*/
 	/* animation turned on - this code delays the animation and runs it */
-	/*
 	animation-delay: 200ms !important;
 	animation: hazardSignFlicker 1.723s linear forwards !important;
-	*/
 	
 }
 
