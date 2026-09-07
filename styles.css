@@ -59,6 +59,11 @@
 	/* hazard symbol visibility current state */
 	--hazardSymbolVisible: var(--hazardBGHidden);
 	
+	/* button text */
+	--buttonTextOff: transparent;
+	--buttonTextOn: black;
+	--buttonTextVisible: var(--buttonTextOff);
+	
 	/* sign bg colors */
 	--signInitial: #889193;
 	--signLow: #cbd1d9; /* aeb5bd */
@@ -146,27 +151,33 @@
 	}
 	48% {
 		--hazardSymbolVisible: var(--hazardBGHidden);
+		--buttonTextVisible: var(--buttonTextOff);
 	}
 	
 	/* frames 42 - 51: 48% - 59%: same color, hazard symbols visible */
 	48% {
 		--hazardSymbolVisible: var(--hazardBGVisible);
+		--buttonTextVisible: var(--buttonTextOn);
 	}
 	59% {
 		--hazardSymbolVisible: var(--hazardBGVisible);
+		--buttonTextVisible: var(--buttonTextOn);
 	}
 	
 	/* frames 52 - 61: 59% - 71%: same color, hazard symbols hidden */
 	59% {
 		--hazardSymbolVisible: var(--hazardBGHidden);
+		--buttonTextVisible: var(--buttonTextOff);
 	}
 	71% {
 		--hazardSymbolVisible: var(--hazardBGHidden);
+		--buttonTextVisible: var(--buttonTextOff);
 	}
 	
 	/* frames 62 - 76: 71% - 88%: same color, hazard symbols visible */
 	71% {
 		--hazardSymbolVisible: var(--hazardBGVisible);
+		--buttonTextVisible: var(--buttonTextOn);
 	}
 	88% {
 		--progressLineVisible: hidden;
@@ -194,6 +205,7 @@
 		--buttonInnerShadow: var(--buttonInnerShadowColor);
 		--signGlowOpacity: var(--signGlowNormal);
 		--hazardSymbolVisible: var(--hazardBGVisible);
+		--buttonTextVisible: var(--buttonTextOn);
 		--progressLineVisible: visible;
 		--mainElementsVisible: visible;
 	}
@@ -207,6 +219,7 @@
 	--buttonInnerShadow: var(--buttonInnerShadowColor) !important;
 	--signGlowOpacity: var(--signGlowNormal) !important;
 	--hazardSymbolVisible: var(--hazardBGVisible) !important;
+	--buttonTextVisible: var(--buttonTextOn);
 	--progressLineVisible: visible!important;
 	--mainElementsVisible: visible!important;
 	*/
@@ -515,6 +528,7 @@ a:visited::selection {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	color: var(--buttonTextVisible);
 }
 
 /* SLIDESHOW */
