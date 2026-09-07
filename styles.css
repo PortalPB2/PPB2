@@ -211,9 +211,8 @@
 	--mainElementsVisible: visible!important;
 	*/
 	/* animation turned on - this code delays the animation and runs it */
-	animation-delay: 200ms !important;
 	animation: hazardSignFlicker 1.723s linear forwards !important;
-	
+	animation-delay: 200ms !important;
 }
 
 .nodrag {
