@@ -859,6 +859,50 @@ a:visited::selection {
 	}
 }
 
+/* Small margins at small widths */
+@media (max-width: 300px) {
+	:root {
+		--moduleLeftMargin: 0px;
+		--moduleRightMargin: 0px;
+		--moduleMarginOuter: 4px;
+		--moduleMarginInner: 7px;
+	}
+	.module { max-width: calc(100% - 34px); }
+	
+	.copyright {
+		margin: 10px!important;
+	}
+}
+
+/* adjustments for tiny widths */
+@media (max-width: 200px) {
+	:root {
+		--moduleLeftMargin: 0px;
+		--moduleRightMargin: 0px;
+		--moduleMarginOuter: 0px;
+		--moduleMarginInner: 4px;
+	}
+	.module { max-width: 100%; }
+}
+
+/* adjustments for VERY tiny widths */
+@media (max-width: 180px) {
+	.downloadButton {
+		max-width: 100% !important;
+		width: 100%;
+		border: 1px solid black;
+	}
+	
+	.downloadText {
+		border: none;
+		padding: 5px;
+	}
+	
+	.downloadButtonImage { display: none; }
+	.displayIcon { display: none; }
+	body { min-width: 140px!important; }
+}
+
 :root {
 	--cakeVal: .25;
 }
