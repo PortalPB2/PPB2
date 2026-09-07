@@ -667,7 +667,9 @@ a:visited::selection {
 	cursor: default;
 }
 
-.overlayButtonArea, .overlayHoriArea { filter: invert(1) /*hue-rotate(180deg);*/ }
+.overlayButtonArea, .overlayHoriArea {
+	filter: invert(1) brightness(.9) sepia(200) saturate(400%);
+}
 .overlayHoriArea { display: none; }
 
 #overlayImage, .overlayButtonArea {
