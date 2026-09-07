@@ -34,9 +34,6 @@
 	--lightBlue: #8ec0f2;
 	--floorBG: #575a5f;
 	--wallBG: #999f9b;
-	--signInnerShadow: #a3afc1;
-	--buttonInnerShadow: #a3afc1;
-	--signBG: #E6ECF2;
 
 	/* urls */
 	--floorIMG: url("images/floor.jpg");
@@ -49,6 +46,176 @@
 	--opacityContentBot: .0;
 	--opacityFooterTop:  .0;
 	--opacityFooterBot:  .6;
+	
+	/*===== animation variables =====*/
+	
+	/* page element visibility */
+	--mainElementsVisible: hidden;
+	--progressLineVisible: hidden;
+	
+	/* hazard symbol visibility - move the background image out of frame to hide */
+	--hazardBGHidden: -100vw -100vh;
+	--hazardBGVisible: center;
+	/* hazard symbol visibility current state */
+	--hazardSymbolVisible: var(--hazardBGHidden);
+	
+	/* sign bg colors */
+	--signInitial: #889193;
+	--signLow: #cbd1d9; /* aeb5bd */
+	--signNormal: #E6ECF2;
+	
+	/* sign bg current state */
+	--signBG: var(--signInitial);
+	
+	/* button inner shadow colors */
+	--buttonInnerShadowOff: transparent;
+	--buttonInnerShadowLower: #737e8f;
+	--buttonInnerShadowColor: #A3AFC1;
+	
+	/* button inner shadow current state */
+	--buttonInnerShadow: var(--buttonInnerShadowOff);
+	
+	/* sign glow factors */
+	--signGlowOff: 0;
+	--signGlowLow: .5;
+	--signGlowNormal: 1;
+	/* sign glow current state */
+	--signGlowOpacity: var(--signGlowOff);
+	--signInnerShadow: rgb(163 175  193 / var(--signGlowOpacity));
+}
+
+@keyframes hazardSignFlicker {
+	
+	/* frames  0 -  6:  0% -  7%: #A5B2B9, nothing visible */
+	0% {
+		--signBG: var(--signInitial);
+		--buttonInnerShadow: var(--buttonInnerShadowOff);
+		--signGlowOpacity: var(--signGlowOff);
+		--mainElementsVisible: hidden;
+		--hazardSymbolVisible: var(--hazardBGHidden);
+		--progressLineVisible: hidden;
+	}
+	7% {
+		--signBG: var(--signInitial);
+		--buttonInnerShadow: var(--buttonInnerShadowOff);
+		--signGlowOpacity: var(--signGlowOff);
+		--mainElementsVisible: hidden;
+	}
+	/* frames  7 - 16:  7% - 19%: #657174, large numerals, 0/19 & underline, overline above symbols, box outlines of symbols, bottom logo */
+	7% {
+		--signBG: var(--signLow);
+		--buttonInnerShadow: var(--buttonInnerShadowLower);
+		--signGlowOpacity: var(--signGlowLow);
+		--mainElementsVisible: visible;
+	}
+	19% {
+		--signBG: var(--signLow);
+		--buttonInnerShadow: var(--buttonInnerShadowLower);
+		--signGlowOpacity: var(--signGlowLow);
+	}
+	
+	/* frames 17 - 26: 19% - 30%: #F8F7FC, same items visible */
+	19% {
+		--signBG: var(--signNormal);
+		--buttonInnerShadow: var(--buttonInnerShadowColor);
+		--signGlowOpacity: var(--signGlowNormal);
+	}
+	30% {
+		--signBG: var(--signNormal);
+		--buttonInnerShadow: var(--buttonInnerShadowColor);
+		--signGlowOpacity: var(--signGlowNormal);
+	}
+	
+	/* frames 27 - 31: 30% - 36%: #657174, same items visible */
+	30% {
+		--signBG: var(--signLow);
+		--buttonInnerShadow: var(--buttonInnerShadowLower);
+		--signGlowOpacity: var(--signGlowLow);
+	}
+	36% {
+		--signBG: var(--signLow);
+		--buttonInnerShadow: var(--buttonInnerShadowLower);
+		--signGlowOpacity: var(--signGlowLow);
+	}
+	
+	/* frames 32 - 41: 36% - 48%: #F8F7FC, same items visible */
+	36% {
+		--signBG: var(--signNormal);
+		--buttonInnerShadow: var(--buttonInnerShadowColor);
+		--signGlowOpacity: var(--signGlowNormal);
+	}
+	48% {
+		--hazardSymbolVisible: var(--hazardBGHidden);
+	}
+	
+	/* frames 42 - 51: 48% - 59%: same color, hazard symbols visible */
+	48% {
+		--hazardSymbolVisible: var(--hazardBGVisible);
+	}
+	59% {
+		--hazardSymbolVisible: var(--hazardBGVisible);
+	}
+	
+	/* frames 52 - 61: 59% - 71%: same color, hazard symbols hidden */
+	59% {
+		--hazardSymbolVisible: var(--hazardBGHidden);
+	}
+	71% {
+		--hazardSymbolVisible: var(--hazardBGHidden);
+	}
+	
+	/* frames 62 - 76: 71% - 88%: same color, hazard symbols visible */
+	71% {
+		--hazardSymbolVisible: var(--hazardBGVisible);
+	}
+	88% {
+		--progressLineVisible: hidden;
+	}
+	
+	/* frames 77 - 81: 88% - 94%: same, lines under 0/19 visible */
+	88% {
+		--progressLineVisible: visible;
+	}
+	94% {
+		--progressLineVisible: visible;
+	}
+	
+	/* frames 82 - 85: 94% - 100%: same, lines under 0/19 hidden */
+	94% {
+		--progressLineVisible: hidden;
+	}
+	100% {
+		--progressLineVisible: hidden;
+	}
+	
+	/* frame 86: 100% normal, all visible */
+	100% {
+		--signBG: var(--signNormal);
+		--buttonInnerShadow: var(--buttonInnerShadowColor);
+		--signGlowOpacity: var(--signGlowNormal);
+		--hazardSymbolVisible: var(--hazardBGVisible);
+		--progressLineVisible: visible;
+		--mainElementsVisible: visible;
+	}
+}
+
+/* comment/uncomment lines to disable or enable the flicker animation */
+:root {
+	/* animation turned off - this code sets all values to their final states */
+	
+	--signBG: var(--signNormal) !important;
+	--buttonInnerShadow: var(--buttonInnerShadowColor) !important;
+	--signGlowOpacity: var(--signGlowNormal) !important;
+	--hazardSymbolVisible: var(--hazardBGVisible) !important;
+	--progressLineVisible: visible!important;
+	--mainElementsVisible: visible!important;
+	
+	/* animation turned on - this code delays the animation and runs it */
+	/*
+	animation-delay: 200ms !important;
+	animation: hazardSignFlicker 1.723s linear forwards !important;
+	*/
+	
 }
 
 .nodrag {
@@ -87,6 +254,10 @@ a:visited {
 a:visited::selection {
 	background-color: var(--blue);
 	color: black;
+}
+
+.display * {
+	visibility: var(--mainElementsVisible);
 }
 
 
@@ -213,7 +384,7 @@ a:visited::selection {
 		#3A3F43 3px 3px 0 inset, #3A3F43 -3px -3px 0 inset /* darker inner border */ ,
 		var(--signInnerShadow) 0 0 30px inset /* inner gradient*/,
 		0 0 5px black /* drop shadow */,
-		0 0 150px rgb(240, 249, 255, 0.35) /* outer glow */;
+		0 0 150px rgb(240, 249, 255, calc(.35 * var(--signGlowOpacity))) /* outer glow */;
 	padding: 3px;
 	color: black!important; /* text */
 	
@@ -267,6 +438,7 @@ a:visited::selection {
 	cursor: default;
 	transition-property: none;
 	pointer-events: none!important;
+	background-position: var(--hazardSymbolVisible);
 }
 
 /* extra formatting for the die images, which support text */
@@ -443,6 +615,7 @@ a:visited::selection {
 	background-size: /*calc(2 * var(--buttonBorderThickness))*/ 48px;
 	background-position: bottom left;
 	background-repeat: repeat-x;
+	visibility: var(--progressLineVisible);
 }
 
 #marker0 { width: calc(100% / 3 * .12); }
